@@ -1,37 +1,32 @@
-<!-- multistep form -->
-<form id="msform">
-  <!-- progressbar -->
-  <ul id="progressbar">
-    <li class="active">Account Setup</li>
-    <li>Social Profiles</li>
-    <li>Personal Details</li>
-  </ul>
-  <!-- fieldsets -->
-  <fieldset>
-    <h2 class="fs-title">Create your account</h2>
-    <h3 class="fs-subtitle">This is step 1</h3>
-    <input type="text" name="email" placeholder="Email" />
-    <input type="password" name="pass" placeholder="Password" />
-    <input type="password" name="cpass" placeholder="Confirm Password" />
-    <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-  <fieldset>
-    <h2 class="fs-title">Social Profiles</h2>
-    <h3 class="fs-subtitle">Your presence on the social network</h3>
-    <input type="text" name="twitter" placeholder="Twitter" />
-    <input type="text" name="facebook" placeholder="Facebook" />
-    <input type="text" name="gplus" placeholder="Google Plus" />
-    <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-  <fieldset>
-    <h2 class="fs-title">Personal Details</h2>
-    <h3 class="fs-subtitle">We will never sell it</h3>
-    <input type="text" name="fname" placeholder="First Name" />
-    <input type="text" name="lname" placeholder="Last Name" />
-    <input type="text" name="phone" placeholder="Phone" />
-    <textarea name="address" placeholder="Address"></textarea>
-    <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <a href="https://twitter.com/GoktepeAtakan" class="submit action-button" target="_top">Submit</a>
-  </fieldset>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+</head>
+<body>
+  <form id="login-form" method="post" action="verify-otp.php">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+    <input type="submit" value="Request OTP">
+  </form>
+  
+  <form id="otp-form" method="post" action="verify-otp.php" style="display: none;">
+    <label for="otp">OTP:</label>
+    <input type="text" id="otp" name="otp" required>
+    <br><br>
+    <input type="submit" value="Verify OTP">
+  </form>
+  
+  <script>
+    // Function to show the OTP form after a successful login request
+    function showOtpForm() {
+      document.getElementById("login-form").style.display = "none";
+      document.getElementById("otp-form").style.display = "block";
+    }
+  </script>
+</body>
+</html>
